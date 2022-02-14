@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require('express');
 const mongoose = require('mongoose');
 
@@ -8,6 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(require('./routes'));
+console.log(process.env.MONGODB_URI)
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/pizza-hunt', {
   useNewUrlParser: true,
